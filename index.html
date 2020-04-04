@@ -9,7 +9,15 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-162750354-1');
+
+      var captureOutboundLink = function(url) {
+        ga('send', 'event', 'outbound', 'click', url, {
+          'transport': 'beacon',
+          'hitCallback': function(){document.location = url;}
+        });
+      }
     </script>
+
 
     <meta charset="UTF-8">
     <title>QUARANTINE BOYS</title>
@@ -40,7 +48,8 @@
   <div>
     <img src="qurantine boys.jpg" alt="QUARANTINE BOYS">
   </div>
-  <a href="https://www.gofundme.com/f/help-our-patients-visit-their-families">
+  <a href="https://www.gofundme.com/f/help-our-patients-visit-their-families"
+     onClick=captureOutboundLink("https://www.gofundme.com/f/help-our-patients-visit-their-families")>
     <h2> DONATE: Help Connect Patients & Families Separated by COVID-19 </h2>
   </a>
 
